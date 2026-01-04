@@ -1,0 +1,22 @@
+#!/bin/bash
+# Pre-Build Hook for ValetFlow
+# Runs before build operations
+
+set -e
+
+echo "🔍 Pre-build validation..."
+
+# Verify we're in the correct directory
+if [ ! -f "ValetFlow.xcodeproj/project.pbxproj" ]; then
+    echo "✗ Error: Not in ValetFlow project directory"
+    exit 1
+fi
+
+# Verify Xcode build tools
+if ! command -v xcodebuild &> /dev/null; then
+    echo "✗ Error: xcodebuild not found"
+    exit 1
+fi
+
+echo "✓ Pre-build validation passed"
+echo ""

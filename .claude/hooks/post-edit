@@ -1,0 +1,21 @@
+#!/bin/bash
+# Post-Edit Hook for ValetFlow
+# Runs after file edits
+
+# Note: This hook is optional and can be customized
+# Currently configured for lightweight operations
+
+# Uncomment to enable Swift formatting with swift-format
+# if command -v swift-format &> /dev/null; then
+#     echo "Formatting edited Swift files..."
+#     find ValetFlow -name "*.swift" -mtime -1s -exec swift-format -i {} \;
+# fi
+
+# Uncomment to enable SwiftLint auto-correction
+# if command -v swiftlint &> /dev/null; then
+#     echo "Running SwiftLint autocorrect..."
+#     swiftlint autocorrect --quiet
+# fi
+
+# Always exit successfully to not block workflow
+exit 0

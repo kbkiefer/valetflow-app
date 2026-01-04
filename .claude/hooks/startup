@@ -1,0 +1,45 @@
+#!/bin/bash
+# Startup Hook for ValetFlow Project
+# Runs when Claude Code session starts
+
+set -e
+
+echo "🚀 ValetFlow Development Environment"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# Check Xcode installation
+if command -v xcodebuild &> /dev/null; then
+    XCODE_VERSION=$(xcodebuild -version | head -1)
+    echo "✓ $XCODE_VERSION"
+else
+    echo "✗ Xcode not found"
+    exit 1
+fi
+
+# Check current git branch
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    BRANCH=$(git branch --show-current)
+    echo "✓ Git branch: $BRANCH"
+
+    # Check for uncommitted changes
+    if ! git diff-index --quiet HEAD -- 2>/dev/null; then
+        echo "⚠ You have uncommitted changes"
+    fi
+else
+    echo "✗ Not a git repository"
+fi
+
+# Check for available simulators
+if xcrun simctl list devices available 2>/dev/null | grep -q "iPhone"; then
+    echo "✓ iOS Simulators available"
+else
+    echo "⚠ No iOS Simulators found"
+fi
+
+# Display project info
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "📱 Project: ValetFlow"
+echo "🎯 Scheme: ValetFlow"
+echo "📦 Bundle ID: com.valetflow.ValetFlow"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
