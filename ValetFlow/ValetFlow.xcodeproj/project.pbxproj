@@ -6,28 +6,109 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C5E855592F0B268C00E9EAE6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; };
+		C5E855C62F0B2A5400E9EAE6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; };
+		C5E855C72F0B2A5400E9EAE6 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5E855CB2F0B2A7800E9EAE6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; };
+		C5E855CC2F0B2A7800E9EAE6 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5E855D02F0B2A8900E9EAE6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; };
+		C5E855D12F0B2A8900E9EAE6 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5E855D72F0B2DC100E9EAE6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855D62F0B2DC100E9EAE6 /* FirebaseAnalytics */; };
+		C5E855D92F0B2DC100E9EAE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855D82F0B2DC100E9EAE6 /* FirebaseAuth */; };
+		C5E855DB2F0B2DC100E9EAE6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855DA2F0B2DC100E9EAE6 /* FirebaseCrashlytics */; };
+		C5E855DD2F0B2DC100E9EAE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855DC2F0B2DC100E9EAE6 /* FirebaseFirestore */; };
+		C5E855DF2F0B2DC100E9EAE6 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855DE2F0B2DC100E9EAE6 /* FirebaseFunctions */; };
+		C5E855E12F0B2DC100E9EAE6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855E02F0B2DC100E9EAE6 /* FirebaseMessaging */; };
+		C5E855E32F0B2DC100E9EAE6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C5E855E22F0B2DC100E9EAE6 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
-		C5E8552D2F0B1B8E00E9EAE6 /* PBXContainerItemProxy */ = {
+		C5E8555A2F0B268C00E9EAE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C5E855172F0B1B8D00E9EAE6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C5E8551E2F0B1B8D00E9EAE6;
-			remoteInfo = ValetFlow;
+			remoteGlobalIDString = C5E8554D2F0B268B00E9EAE6;
+			remoteInfo = Shared;
 		};
-		C5E855372F0B1B8E00E9EAE6 /* PBXContainerItemProxy */ = {
+		C5E855C82F0B2A5400E9EAE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C5E855172F0B1B8D00E9EAE6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C5E8551E2F0B1B8D00E9EAE6;
-			remoteInfo = ValetFlow;
+			remoteGlobalIDString = C5E8554D2F0B268B00E9EAE6;
+			remoteInfo = Shared;
+		};
+		C5E855CD2F0B2A7800E9EAE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5E855172F0B1B8D00E9EAE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5E8554D2F0B268B00E9EAE6;
+			remoteInfo = Shared;
+		};
+		C5E855D22F0B2A8900E9EAE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5E855172F0B1B8D00E9EAE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5E8554D2F0B268B00E9EAE6;
+			remoteInfo = Shared;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C5E855CA2F0B2A5400E9EAE6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5E855C72F0B2A5400E9EAE6 /* Shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855CF2F0B2A7800E9EAE6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5E855CC2F0B2A7800E9EAE6 /* Shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855D42F0B2A8900E9EAE6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5E855D12F0B2A8900E9EAE6 /* Shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C5E8551F2F0B1B8D00E9EAE6 /* ValetFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValetFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E8552C2F0B1B8E00E9EAE6 /* ValetFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValetFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E855362F0B1B8E00E9EAE6 /* ValetFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValetFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E8554E2F0B268B00E9EAE6 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E855582F0B268C00E9EAE6 /* SharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E855982F0B288200E9EAE6 /* ValetFlow Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ValetFlow Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E855AB2F0B294200E9EAE6 /* ValetFlow Field.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ValetFlow Field.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E855BA2F0B29B100E9EAE6 /* ValetFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValetFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C5E855E52F0B52E300E9EAE6 /* Exceptions for "ValetFlow Field" folder in "ValetFlow Field" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"ValetFlow-Field-Info.plist",
+			);
+			target = C5E855AA2F0B294200E9EAE6 /* ValetFlow Field */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C5E855212F0B1B8D00E9EAE6 /* ValetFlow */ = {
@@ -45,16 +126,37 @@
 			path = ValetFlowUITests;
 			sourceTree = "<group>";
 		};
+		C5E8554F2F0B268B00E9EAE6 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C5E8555C2F0B268C00E9EAE6 /* SharedTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SharedTests;
+			sourceTree = "<group>";
+		};
+		C5E855992F0B288300E9EAE6 /* ValetFlow Admin */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ValetFlow Admin";
+			sourceTree = "<group>";
+		};
+		C5E855AC2F0B294200E9EAE6 /* ValetFlow Field */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C5E855E52F0B52E300E9EAE6 /* Exceptions for "ValetFlow Field" folder in "ValetFlow Field" target */,
+			);
+			path = "ValetFlow Field";
+			sourceTree = "<group>";
+		};
+		C5E855BB2F0B29B100E9EAE6 /* ValetFlow */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ValetFlow;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C5E8551C2F0B1B8D00E9EAE6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C5E855292F0B1B8E00E9EAE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +171,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5E8554B2F0B268B00E9EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E855E12F0B2DC100E9EAE6 /* FirebaseMessaging in Frameworks */,
+				C5E855DB2F0B2DC100E9EAE6 /* FirebaseCrashlytics in Frameworks */,
+				C5E855DD2F0B2DC100E9EAE6 /* FirebaseFirestore in Frameworks */,
+				C5E855DF2F0B2DC100E9EAE6 /* FirebaseFunctions in Frameworks */,
+				C5E855E32F0B2DC100E9EAE6 /* FirebaseStorage in Frameworks */,
+				C5E855D72F0B2DC100E9EAE6 /* FirebaseAnalytics in Frameworks */,
+				C5E855D92F0B2DC100E9EAE6 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855552F0B268C00E9EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E855592F0B268C00E9EAE6 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855952F0B288200E9EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E855C62F0B2A5400E9EAE6 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855A82F0B294200E9EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E855CB2F0B2A7800E9EAE6 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855B72F0B29B100E9EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E855D02F0B2A8900E9EAE6 /* Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +226,12 @@
 				C5E855212F0B1B8D00E9EAE6 /* ValetFlow */,
 				C5E8552F2F0B1B8E00E9EAE6 /* ValetFlowTests */,
 				C5E855392F0B1B8E00E9EAE6 /* ValetFlowUITests */,
+				C5E8554F2F0B268B00E9EAE6 /* Shared */,
+				C5E8555C2F0B268C00E9EAE6 /* SharedTests */,
+				C5E855992F0B288300E9EAE6 /* ValetFlow Admin */,
+				C5E855AC2F0B294200E9EAE6 /* ValetFlow Field */,
+				C5E855BB2F0B29B100E9EAE6 /* ValetFlow */,
+				C5E855C52F0B2A5400E9EAE6 /* Frameworks */,
 				C5E855202F0B1B8D00E9EAE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,38 +239,37 @@
 		C5E855202F0B1B8D00E9EAE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5E8551F2F0B1B8D00E9EAE6 /* ValetFlow.app */,
 				C5E8552C2F0B1B8E00E9EAE6 /* ValetFlowTests.xctest */,
 				C5E855362F0B1B8E00E9EAE6 /* ValetFlowUITests.xctest */,
+				C5E8554E2F0B268B00E9EAE6 /* Shared.framework */,
+				C5E855582F0B268C00E9EAE6 /* SharedTests.xctest */,
+				C5E855982F0B288200E9EAE6 /* ValetFlow Admin.app */,
+				C5E855AB2F0B294200E9EAE6 /* ValetFlow Field.app */,
+				C5E855BA2F0B29B100E9EAE6 /* ValetFlow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C5E855C52F0B2A5400E9EAE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		C5E8551E2F0B1B8D00E9EAE6 /* ValetFlow */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C5E855402F0B1B8E00E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow" */;
-			buildPhases = (
-				C5E8551B2F0B1B8D00E9EAE6 /* Sources */,
-				C5E8551C2F0B1B8D00E9EAE6 /* Frameworks */,
-				C5E8551D2F0B1B8D00E9EAE6 /* Resources */,
+/* Begin PBXHeadersBuildPhase section */
+		C5E855492F0B268B00E9EAE6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C5E855212F0B1B8D00E9EAE6 /* ValetFlow */,
-			);
-			name = ValetFlow;
-			packageProductDependencies = (
-			);
-			productName = ValetFlow;
-			productReference = C5E8551F2F0B1B8D00E9EAE6 /* ValetFlow.app */;
-			productType = "com.apple.product-type.application";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
 		C5E8552B2F0B1B8E00E9EAE6 /* ValetFlowTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5E855432F0B1B8E00E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlowTests" */;
@@ -128,7 +281,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C5E8552E2F0B1B8E00E9EAE6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C5E8552F2F0B1B8E00E9EAE6 /* ValetFlowTests */,
@@ -151,7 +303,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C5E855382F0B1B8E00E9EAE6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C5E855392F0B1B8E00E9EAE6 /* ValetFlowUITests */,
@@ -163,6 +314,131 @@
 			productReference = C5E855362F0B1B8E00E9EAE6 /* ValetFlowUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C5E8554D2F0B268B00E9EAE6 /* Shared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E8555F2F0B268C00E9EAE6 /* Build configuration list for PBXNativeTarget "Shared" */;
+			buildPhases = (
+				C5E855492F0B268B00E9EAE6 /* Headers */,
+				C5E8554A2F0B268B00E9EAE6 /* Sources */,
+				C5E8554B2F0B268B00E9EAE6 /* Frameworks */,
+				C5E8554C2F0B268B00E9EAE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C5E8554F2F0B268B00E9EAE6 /* Shared */,
+			);
+			name = Shared;
+			packageProductDependencies = (
+				C5E855D62F0B2DC100E9EAE6 /* FirebaseAnalytics */,
+				C5E855D82F0B2DC100E9EAE6 /* FirebaseAuth */,
+				C5E855DA2F0B2DC100E9EAE6 /* FirebaseCrashlytics */,
+				C5E855DC2F0B2DC100E9EAE6 /* FirebaseFirestore */,
+				C5E855DE2F0B2DC100E9EAE6 /* FirebaseFunctions */,
+				C5E855E02F0B2DC100E9EAE6 /* FirebaseMessaging */,
+				C5E855E22F0B2DC100E9EAE6 /* FirebaseStorage */,
+			);
+			productName = Shared;
+			productReference = C5E8554E2F0B268B00E9EAE6 /* Shared.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C5E855572F0B268C00E9EAE6 /* SharedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E855622F0B268C00E9EAE6 /* Build configuration list for PBXNativeTarget "SharedTests" */;
+			buildPhases = (
+				C5E855542F0B268C00E9EAE6 /* Sources */,
+				C5E855552F0B268C00E9EAE6 /* Frameworks */,
+				C5E855562F0B268C00E9EAE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5E8555B2F0B268C00E9EAE6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C5E8555C2F0B268C00E9EAE6 /* SharedTests */,
+			);
+			name = SharedTests;
+			packageProductDependencies = (
+			);
+			productName = SharedTests;
+			productReference = C5E855582F0B268C00E9EAE6 /* SharedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C5E855972F0B288200E9EAE6 /* ValetFlow Admin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E855A02F0B288500E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow Admin" */;
+			buildPhases = (
+				C5E855942F0B288200E9EAE6 /* Sources */,
+				C5E855952F0B288200E9EAE6 /* Frameworks */,
+				C5E855962F0B288200E9EAE6 /* Resources */,
+				C5E855CA2F0B2A5400E9EAE6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5E855C92F0B2A5400E9EAE6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C5E855992F0B288300E9EAE6 /* ValetFlow Admin */,
+			);
+			name = "ValetFlow Admin";
+			packageProductDependencies = (
+			);
+			productName = "ValetFlow Admin";
+			productReference = C5E855982F0B288200E9EAE6 /* ValetFlow Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5E855AA2F0B294200E9EAE6 /* ValetFlow Field */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E855B32F0B294300E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow Field" */;
+			buildPhases = (
+				C5E855A72F0B294200E9EAE6 /* Sources */,
+				C5E855A82F0B294200E9EAE6 /* Frameworks */,
+				C5E855A92F0B294200E9EAE6 /* Resources */,
+				C5E855CF2F0B2A7800E9EAE6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5E855CE2F0B2A7800E9EAE6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C5E855AC2F0B294200E9EAE6 /* ValetFlow Field */,
+			);
+			name = "ValetFlow Field";
+			packageProductDependencies = (
+			);
+			productName = "ValetFlow Field";
+			productReference = C5E855AB2F0B294200E9EAE6 /* ValetFlow Field.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5E855B92F0B29B100E9EAE6 /* ValetFlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E855C22F0B29B300E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow" */;
+			buildPhases = (
+				C5E855B62F0B29B100E9EAE6 /* Sources */,
+				C5E855B72F0B29B100E9EAE6 /* Frameworks */,
+				C5E855B82F0B29B100E9EAE6 /* Resources */,
+				C5E855D42F0B2A8900E9EAE6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5E855D32F0B2A8900E9EAE6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C5E855BB2F0B29B100E9EAE6 /* ValetFlow */,
+			);
+			name = ValetFlow;
+			packageProductDependencies = (
+			);
+			productName = ValetFlow;
+			productReference = C5E855BA2F0B29B100E9EAE6 /* ValetFlow.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,9 +449,6 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
-					C5E8551E2F0B1B8D00E9EAE6 = {
-						CreatedOnToolsVersion = 26.2;
-					};
 					C5E8552B2F0B1B8E00E9EAE6 = {
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = C5E8551E2F0B1B8D00E9EAE6;
@@ -183,6 +456,21 @@
 					C5E855352F0B1B8E00E9EAE6 = {
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = C5E8551E2F0B1B8D00E9EAE6;
+					};
+					C5E8554D2F0B268B00E9EAE6 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					C5E855572F0B268C00E9EAE6 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					C5E855972F0B288200E9EAE6 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					C5E855AA2F0B294200E9EAE6 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					C5E855B92F0B29B100E9EAE6 = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -195,26 +483,26 @@
 			);
 			mainGroup = C5E855162F0B1B8D00E9EAE6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C5E855202F0B1B8D00E9EAE6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5E8551E2F0B1B8D00E9EAE6 /* ValetFlow */,
 				C5E8552B2F0B1B8E00E9EAE6 /* ValetFlowTests */,
 				C5E855352F0B1B8E00E9EAE6 /* ValetFlowUITests */,
+				C5E8554D2F0B268B00E9EAE6 /* Shared */,
+				C5E855572F0B268C00E9EAE6 /* SharedTests */,
+				C5E855972F0B288200E9EAE6 /* ValetFlow Admin */,
+				C5E855AA2F0B294200E9EAE6 /* ValetFlow Field */,
+				C5E855B92F0B29B100E9EAE6 /* ValetFlow */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C5E8551D2F0B1B8D00E9EAE6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C5E8552A2F0B1B8E00E9EAE6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,16 +517,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		C5E8551B2F0B1B8D00E9EAE6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		C5E8554C2F0B268B00E9EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5E855562F0B268C00E9EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855962F0B288200E9EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855A92F0B294200E9EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855B82F0B29B100E9EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		C5E855282F0B1B8E00E9EAE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,18 +569,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5E8554A2F0B268B00E9EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855542F0B268C00E9EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855942F0B288200E9EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855A72F0B294200E9EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E855B62F0B29B100E9EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C5E8552E2F0B1B8E00E9EAE6 /* PBXTargetDependency */ = {
+		C5E8555B2F0B268C00E9EAE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C5E8551E2F0B1B8D00E9EAE6 /* ValetFlow */;
-			targetProxy = C5E8552D2F0B1B8E00E9EAE6 /* PBXContainerItemProxy */;
+			target = C5E8554D2F0B268B00E9EAE6 /* Shared */;
+			targetProxy = C5E8555A2F0B268C00E9EAE6 /* PBXContainerItemProxy */;
 		};
-		C5E855382F0B1B8E00E9EAE6 /* PBXTargetDependency */ = {
+		C5E855C92F0B2A5400E9EAE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C5E8551E2F0B1B8D00E9EAE6 /* ValetFlow */;
-			targetProxy = C5E855372F0B1B8E00E9EAE6 /* PBXContainerItemProxy */;
+			target = C5E8554D2F0B268B00E9EAE6 /* Shared */;
+			targetProxy = C5E855C82F0B2A5400E9EAE6 /* PBXContainerItemProxy */;
+		};
+		C5E855CE2F0B2A7800E9EAE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5E8554D2F0B268B00E9EAE6 /* Shared */;
+			targetProxy = C5E855CD2F0B2A7800E9EAE6 /* PBXContainerItemProxy */;
+		};
+		C5E855D32F0B2A8900E9EAE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5E8554D2F0B268B00E9EAE6 /* Shared */;
+			targetProxy = C5E855D22F0B2A8900E9EAE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -388,68 +749,6 @@
 			};
 			name = Release;
 		};
-		C5E855412F0B1B8E00E9EAE6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.ValetFlow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C5E855422F0B1B8E00E9EAE6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.ValetFlow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		C5E855442F0B1B8E00E9EAE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -530,6 +829,316 @@
 			};
 			name = Release;
 		};
+		C5E855602F0B268C00E9EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.Shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C5E855612F0B268C00E9EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.Shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C5E855632F0B268C00E9EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.SharedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5E855642F0B268C00E9EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.SharedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C5E855A12F0B288500E9EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.valetflow.ValetFlow-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5E855A22F0B288500E9EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.valetflow.ValetFlow-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C5E855B42F0B294300E9EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ValetFlow-Field-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We track your location to show route progress to customers";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need background location to track routes even when the app is closed";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need background location to track routes even when the app is closed";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.valetflow.ValetFlow-Field";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5E855B52F0B294300E9EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ValetFlow-Field-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We track your location to show route progress to customers";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need background location to track routes even when the app is closed";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need background location to track routes even when the app is closed";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.valetflow.ValetFlow-Field";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C5E855C32F0B29B300E9EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.ValetFlow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5E855C42F0B29B300E9EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6XPD54Z53;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valetflow.ValetFlow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -538,15 +1147,6 @@
 			buildConfigurations = (
 				C5E8553E2F0B1B8E00E9EAE6 /* Debug */,
 				C5E8553F2F0B1B8E00E9EAE6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C5E855402F0B1B8E00E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C5E855412F0B1B8E00E9EAE6 /* Debug */,
-				C5E855422F0B1B8E00E9EAE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -569,7 +1169,101 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C5E8555F2F0B268C00E9EAE6 /* Build configuration list for PBXNativeTarget "Shared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E855602F0B268C00E9EAE6 /* Debug */,
+				C5E855612F0B268C00E9EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5E855622F0B268C00E9EAE6 /* Build configuration list for PBXNativeTarget "SharedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E855632F0B268C00E9EAE6 /* Debug */,
+				C5E855642F0B268C00E9EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5E855A02F0B288500E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E855A12F0B288500E9EAE6 /* Debug */,
+				C5E855A22F0B288500E9EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5E855B32F0B294300E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow Field" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E855B42F0B294300E9EAE6 /* Debug */,
+				C5E855B52F0B294300E9EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5E855C22F0B29B300E9EAE6 /* Build configuration list for PBXNativeTarget "ValetFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E855C32F0B29B300E9EAE6 /* Debug */,
+				C5E855C42F0B29B300E9EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5E855D62F0B2DC100E9EAE6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C5E855D82F0B2DC100E9EAE6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C5E855DA2F0B2DC100E9EAE6 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		C5E855DC2F0B2DC100E9EAE6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C5E855DE2F0B2DC100E9EAE6 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		C5E855E02F0B2DC100E9EAE6 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		C5E855E22F0B2DC100E9EAE6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5E855D52F0B2DC100E9EAE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C5E855172F0B1B8D00E9EAE6 /* Project object */;
 }
