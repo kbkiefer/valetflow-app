@@ -3,6 +3,23 @@ import Combine
 import CoreLocation
 import FirebaseFirestore
 
+enum LocationServiceError: Error, LocalizedError {
+    case authorizationDenied
+    case locationUpdateFailed(underlying: Error)
+    case firebaseUpdateFailed(underlying: Error)
+
+    var errorDescription: String? {
+        switch self {
+        case .authorizationDenied:
+            return "Location authorization not granted"
+        case .locationUpdateFailed(let error):
+            return "Location update failed: \(error.localizedDescription)"
+        case .firebaseUpdateFailed(let error):
+            return "Failed to update location in Firebase: \(error.localizedDescription)"
+        }
+    }
+}
+
 @MainActor
 class LocationService: NSObject, ObservableObject {
     static let shared = LocationService()
@@ -10,6 +27,7 @@ class LocationService: NSObject, ObservableObject {
     @Published var currentLocation: CLLocation?
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var isTracking = false
+    @Published var lastError: LocationServiceError?
 
     private let locationManager = CLLocationManager()
     private let db = Firestore.firestore()
@@ -24,6 +42,10 @@ class LocationService: NSObject, ObservableObject {
         locationManager.pausesLocationUpdatesAutomatically = false
     }
 
+    deinit {
+        stopTracking()
+    }
+
     // MARK: - Authorization
 
     func requestAuthorization() {
@@ -36,10 +58,11 @@ class LocationService: NSObject, ObservableObject {
 
     // MARK: - Location Tracking
 
-    func startTracking(for shiftId: String, employeeId: String) {
+    func startTracking(for shiftId: String, employeeId: String) throws {
         guard authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse else {
-            print("Location authorization not granted")
-            return
+            let error = LocationServiceError.authorizationDenied
+            lastError = error
+            throw error
         }
 
         locationManager.startUpdatingLocation()
@@ -81,8 +104,11 @@ class LocationService: NSObject, ObservableObject {
                 "currentLocation": try Firestore.Encoder().encode(locationUpdate),
                 "lastUpdated": FieldValue.serverTimestamp()
             ])
+            lastError = nil
         } catch {
-            print("Error updating location: \(error)")
+            let wrappedError = LocationServiceError.firebaseUpdateFailed(underlying: error)
+            lastError = wrappedError
+            // Error is stored in lastError for UI observation
         }
     }
 
@@ -116,6 +142,8 @@ extension LocationService: CLLocationManagerDelegate {
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location manager failed with error: \(error)")
+        Task { @MainActor in
+            self.lastError = LocationServiceError.locationUpdateFailed(underlying: error)
+        }
     }
 }

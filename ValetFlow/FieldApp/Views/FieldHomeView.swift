@@ -29,15 +29,6 @@ struct FieldHomeView: View {
     }
 }
 
-struct ClockInView: View {
-    var body: some View {
-        NavigationView {
-            Text("Clock In/Out feature coming soon")
-                .navigationTitle("Clock")
-        }
-    }
-}
-
 struct RouteView: View {
     var body: some View {
         NavigationView {

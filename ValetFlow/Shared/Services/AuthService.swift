@@ -3,12 +3,30 @@ import Combine
 import FirebaseAuth
 import FirebaseFirestore
 
+enum AuthServiceError: Error, LocalizedError {
+    case userProfileNotFound
+    case userProfileLoadFailed(underlying: Error)
+    case invalidUserId
+
+    var errorDescription: String? {
+        switch self {
+        case .userProfileNotFound:
+            return "User profile not found"
+        case .userProfileLoadFailed(let error):
+            return "Failed to load user profile: \(error.localizedDescription)"
+        case .invalidUserId:
+            return "Invalid user ID"
+        }
+    }
+}
+
 @MainActor
 class AuthService: ObservableObject {
     static let shared = AuthService()
 
     @Published var currentUser: User?
     @Published var isAuthenticated = false
+    @Published var lastError: AuthServiceError?
 
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
@@ -20,7 +38,11 @@ class AuthService: ObservableObject {
     func checkAuthStatus() {
         if let firebaseUser = auth.currentUser {
             Task {
-                await loadUserProfile(userId: firebaseUser.uid)
+                do {
+                    try await loadUserProfile(userId: firebaseUser.uid)
+                } catch {
+                    // Error is already stored in lastError property for UI observation
+                }
             }
         }
     }
@@ -29,7 +51,7 @@ class AuthService: ObservableObject {
 
     func signIn(email: String, password: String) async throws {
         let result = try await auth.signIn(withEmail: email, password: password)
-        await loadUserProfile(userId: result.user.uid)
+        try await loadUserProfile(userId: result.user.uid)
     }
 
     func signUp(email: String, password: String, firstName: String, lastName: String, role: UserRole, companyId: String) async throws {
@@ -69,15 +91,23 @@ class AuthService: ObservableObject {
 
     // MARK: - User Profile
 
-    private func loadUserProfile(userId: String) async {
+    private func loadUserProfile(userId: String) async throws {
         do {
             let document = try await db.collection("users").document(userId).getDocument()
-            if let user = try? document.data(as: User.self) {
-                currentUser = user
-                isAuthenticated = true
+            guard let user = try? document.data(as: User.self) else {
+                let error = AuthServiceError.userProfileNotFound
+                lastError = error
+                throw error
             }
+            currentUser = user
+            isAuthenticated = true
+            lastError = nil
+        } catch let error as AuthServiceError {
+            throw error
         } catch {
-            print("Error loading user profile: \(error)")
+            let wrappedError = AuthServiceError.userProfileLoadFailed(underlying: error)
+            lastError = wrappedError
+            throw wrappedError
         }
     }
 
@@ -85,7 +115,7 @@ class AuthService: ObservableObject {
         guard let userId = user.id else { return }
         var updatedUser = user
         updatedUser.updatedAt = Date()
-        try db.collection("users").document(userId).setData(from: updatedUser, merge: true)
+        try await db.collection("users").document(userId).setData(from: updatedUser, merge: true)
         currentUser = updatedUser
     }
 

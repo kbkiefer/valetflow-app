@@ -5,7 +5,7 @@ struct CommunityOnboardingView: View {
     @State private var showLogin = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 32) {
                 Spacer()
 
@@ -49,7 +49,6 @@ struct CommunityOnboardingView: View {
 
                 Spacer()
             }
-            .navigationBarHidden(true)
             .sheet(isPresented: $showLogin) {
                 CommunityLoginView(communityCode: communityCode)
             }
@@ -67,7 +66,7 @@ struct CommunityLoginView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 24) {
                 Text("Sign in to ValetFlow")
                     .font(.title2)
