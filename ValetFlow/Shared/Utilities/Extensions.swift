@@ -33,7 +33,10 @@ extension Date {
         var components = DateComponents()
         components.day = 1
         components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfDay)!
+        guard let date = Calendar.current.date(byAdding: components, to: startOfDay) else {
+            return startOfDay.addingTimeInterval(86400 - 1)
+        }
+        return date
     }
 }
 

@@ -8,7 +8,7 @@ struct AdminLoginView: View {
     @State private var errorMessage: String?
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 24) {
                 Spacer()
 
@@ -67,7 +67,6 @@ struct AdminLoginView: View {
 
                 Spacer()
             }
-            .navigationBarHidden(true)
         }
     }
 
