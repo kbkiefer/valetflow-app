@@ -87,16 +87,18 @@ struct CommunitiesListView: View {
                 noSearchResultsView
             } else {
                 ForEach(viewModel.filteredCommunities) { community in
-                    CommunityRowView(community: community)
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button(role: .destructive) {
-                                Task {
-                                    await viewModel.deleteCommunity(community)
-                                }
-                            } label: {
-                                Label("Delete", systemImage: "trash")
+                    NavigationLink(destination: CommunityDetailView(community: community)) {
+                        CommunityRowView(community: community)
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button(role: .destructive) {
+                            Task {
+                                await viewModel.deleteCommunity(community)
                             }
+                        } label: {
+                            Label("Delete", systemImage: "trash")
                         }
+                    }
                 }
             }
         }

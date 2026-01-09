@@ -89,7 +89,11 @@ struct EmployeesListView: View {
             } else {
                 List {
                     ForEach(viewModel.filteredEmployees) { employee in
-                        EmployeeRowView(employee: employee)
+                        NavigationLink {
+                            EmployeeDetailView(displayItem: employee)
+                        } label: {
+                            EmployeeRowView(employee: employee)
+                        }
                     }
                     .onDelete(perform: deleteEmployees)
                 }
