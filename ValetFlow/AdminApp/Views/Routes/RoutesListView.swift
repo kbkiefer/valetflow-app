@@ -2,38 +2,49 @@ import SwiftUI
 
 struct RoutesListView: View {
     @StateObject private var viewModel = RoutesListViewModel()
+    @State private var contentState: ContentState = .loading
+    @State private var showFilterSheet = false
+
+    private enum ContentState: Equatable {
+        case loading
+        case empty
+        case searchEmpty
+        case content
+    }
 
     var body: some View {
         NavigationStack {
-            Group {
-                if viewModel.isLoading && viewModel.routes.isEmpty {
-                    loadingView
-                } else if viewModel.hasNoRoutes {
-                    emptyStateView
-                } else {
-                    routesListView
+            ZStack {
+                // Background gradient
+                LinearGradient(
+                    colors: [
+                        Color(.systemBackground),
+                        Color(.systemGray6).opacity(0.5)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    // Filter chips section
+                    if !viewModel.routes.isEmpty {
+                        filterChipsView
+                            .transition(.move(edge: .top).combined(with: .opacity))
+                    }
+
+                    contentView
                 }
             }
             .navigationTitle("Routes")
             .searchable(text: $viewModel.searchText, prompt: "Search routes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        Picker("Filter", selection: $viewModel.filterOption) {
-                            ForEach(RouteFilterOption.allCases, id: \.self) { option in
-                                Text(option.rawValue).tag(option)
-                            }
-                        }
-                    } label: {
-                        Label("Filter", systemImage: filterIcon)
-                    }
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         // Add route action - placeholder for future implementation
                     }) {
                         Image(systemName: "plus")
+                            .fontWeight(.medium)
                     }
                 }
             }
@@ -45,72 +56,115 @@ struct RoutesListView: View {
             .task {
                 await viewModel.loadRoutes()
             }
+            .onChange(of: viewModel.isLoading) { _, isLoading in
+                updateContentState()
+            }
+            .onChange(of: viewModel.routes.count) { _, _ in
+                updateContentState()
+            }
+            .onChange(of: viewModel.searchText) { _, _ in
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                    updateContentState()
+                }
+            }
+            .onChange(of: viewModel.filterOption) { _, _ in
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                    updateContentState()
+                }
+            }
         }
     }
 
-    // MARK: - Filter Icon
+    // MARK: - Filter Chips View
 
-    private var filterIcon: String {
-        viewModel.filterOption == .all ? "line.3.horizontal.decrease.circle" : "line.3.horizontal.decrease.circle.fill"
+    private var filterChipsView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(RouteFilterOption.allCases, id: \.self) { option in
+                    FilterChip(
+                        title: option.rawValue,
+                        isSelected: viewModel.filterOption == option
+                    ) {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            viewModel.filterOption = option
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 12)
+        }
+        .background(Color(.systemBackground).opacity(0.95))
+    }
+
+    // MARK: - Content View
+
+    @ViewBuilder
+    private var contentView: some View {
+        switch contentState {
+        case .loading:
+            loadingView
+                .transition(.opacity.combined(with: .scale(scale: 0.98)))
+
+        case .empty:
+            emptyStateView
+                .transition(.asymmetric(
+                    insertion: .opacity.combined(with: .scale(scale: 0.9)),
+                    removal: .opacity
+                ))
+
+        case .searchEmpty:
+            noSearchResultsView
+                .transition(.opacity.combined(with: .move(edge: .top)))
+
+        case .content:
+            routesListView
+                .transition(.opacity)
+        }
     }
 
     // MARK: - Loading View
 
     private var loadingView: some View {
-        VStack(spacing: 16) {
-            ProgressView()
-                .scaleEffect(1.5)
-            Text("Loading routes...")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+        ScrollView {
+            VStack(spacing: 12) {
+                ForEach(0..<6, id: \.self) { index in
+                    RouteRowSkeleton(index: index)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top, 8)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     // MARK: - Empty State View
 
     private var emptyStateView: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "map")
-                .font(.system(size: 60))
-                .foregroundColor(Constants.Colors.adminAccent)
-
-            Text("No Routes")
-                .font(.title2)
-                .fontWeight(.semibold)
-
-            Text("Create your first route to start organizing community pickups.")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
-
-            Button(action: {
+        AnimatedEmptyState(
+            icon: "map",
+            title: "No Routes",
+            message: "Create your first route to start organizing community pickups.",
+            accentColor: Constants.Colors.fieldPrimary,
+            buttonTitle: "Add Route",
+            buttonAction: {
                 // Add route action - placeholder for future implementation
-            }) {
-                Label("Add Route", systemImage: "plus.circle.fill")
-                    .fontWeight(.semibold)
             }
-            .buttonStyle(.borderedProminent)
-            .tint(Constants.Colors.adminPrimary)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        )
     }
 
     // MARK: - Routes List View
 
     private var routesListView: some View {
-        List {
-            if viewModel.hasNoSearchResults {
-                noSearchResultsView
-            } else {
-                ForEach(viewModel.filteredRoutes) { route in
+        ScrollView {
+            LazyVStack(spacing: 12) {
+                ForEach(Array(viewModel.filteredRoutes.enumerated()), id: \.element.id) { index, route in
                     RouteRowView(
                         route: route,
                         formattedSchedule: viewModel.formattedSchedule(for: route),
-                        formattedDuration: viewModel.formattedDuration(for: route)
+                        formattedDuration: viewModel.formattedDuration(for: route),
+                        index: index
                     )
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    .contextMenu {
                         Button(role: .destructive) {
                             Task {
                                 await viewModel.deleteRoute(route)
@@ -121,38 +175,93 @@ struct RoutesListView: View {
                     }
                 }
             }
+            .padding(.horizontal)
+            .padding(.top, 8)
+            .padding(.bottom, 20)
         }
-        .listStyle(.insetGrouped)
         .refreshable {
             await viewModel.refresh()
         }
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: viewModel.filteredRoutes.count)
     }
 
     // MARK: - No Search Results View
 
     private var noSearchResultsView: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "magnifyingglass")
-                .font(.system(size: 40))
-                .foregroundColor(Constants.Colors.adminAccent)
-
-            Text("No Results")
-                .font(.headline)
+        VStack(spacing: 16) {
+            AnimatedSearchEmptyState(
+                searchText: viewModel.searchText,
+                accentColor: Constants.Colors.fieldPrimary
+            )
 
             if viewModel.filterOption != .all {
-                Text("No \(viewModel.filterOption.rawValue.lowercased()) routes match \"\(viewModel.searchText)\"")
-                    .font(.subheadline)
+                Text("Showing \(viewModel.filterOption.rawValue.lowercased()) routes only")
+                    .font(.caption)
                     .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-            } else {
-                Text("No routes match \"\(viewModel.searchText)\"")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(
+                        Capsule()
+                            .fill(Color(.systemGray6))
+                    )
             }
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 40)
-        .listRowBackground(Color.clear)
+    }
+
+    // MARK: - State Management
+
+    private func updateContentState() {
+        if viewModel.isLoading && viewModel.routes.isEmpty {
+            contentState = .loading
+        } else if viewModel.hasNoRoutes {
+            contentState = .empty
+        } else if viewModel.hasNoSearchResults {
+            contentState = .searchEmpty
+        } else {
+            contentState = .content
+        }
+    }
+}
+
+// MARK: - Animated Filter Chip for Routes
+
+private struct RouteFilterChip: View {
+    let option: RouteFilterOption
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                if isSelected {
+                    Image(systemName: filterIcon)
+                        .font(.caption)
+                        .transition(.scale.combined(with: .opacity))
+                }
+
+                Text(option.rawValue)
+                    .font(.subheadline)
+                    .fontWeight(isSelected ? .semibold : .regular)
+            }
+            .foregroundColor(isSelected ? .white : .primary)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+            .background(
+                Capsule()
+                    .fill(isSelected ? Constants.Colors.adminPrimary : Color(.systemGray6))
+            )
+        }
+        .buttonStyle(.plain)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+        .sensoryFeedback(.selection, trigger: isSelected)
+    }
+
+    private var filterIcon: String {
+        switch option {
+        case .all: return "list.bullet"
+        case .active: return "checkmark.circle.fill"
+        case .inactive: return "pause.circle.fill"
+        }
     }
 }
 

@@ -2,17 +2,30 @@ import SwiftUI
 
 struct EmployeesListView: View {
     @StateObject private var viewModel = EmployeesListViewModel()
+    @State private var contentState: ContentState = .loading
+
+    private enum ContentState: Equatable {
+        case loading
+        case empty
+        case searchEmpty
+        case content
+    }
 
     var body: some View {
         NavigationView {
-            Group {
-                if viewModel.isLoading && viewModel.employees.isEmpty {
-                    loadingView
-                } else if viewModel.isEmpty {
-                    emptyStateView
-                } else {
-                    employeeListView
-                }
+            ZStack {
+                // Background gradient
+                LinearGradient(
+                    colors: [
+                        Color(.systemBackground),
+                        Color(.systemGray6).opacity(0.5)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+
+                contentView
             }
             .navigationTitle("Employees")
             .searchable(text: $viewModel.searchText, prompt: "Search by name or position")
@@ -24,88 +37,130 @@ struct EmployeesListView: View {
             .task {
                 await viewModel.loadEmployees()
             }
+            .onChange(of: viewModel.isLoading) { _, isLoading in
+                updateContentState()
+            }
+            .onChange(of: viewModel.employees.count) { _, _ in
+                updateContentState()
+            }
+            .onChange(of: viewModel.searchText) { _, _ in
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                    updateContentState()
+                }
+            }
+        }
+    }
+
+    // MARK: - Content View
+
+    @ViewBuilder
+    private var contentView: some View {
+        switch contentState {
+        case .loading:
+            loadingView
+                .transition(.opacity.combined(with: .scale(scale: 0.98)))
+
+        case .empty:
+            emptyStateView
+                .transition(.asymmetric(
+                    insertion: .opacity.combined(with: .scale(scale: 0.9)),
+                    removal: .opacity
+                ))
+
+        case .searchEmpty:
+            searchEmptyView
+                .transition(.opacity.combined(with: .move(edge: .top)))
+
+        case .content:
+            employeeListView
+                .transition(.opacity)
         }
     }
 
     // MARK: - Loading View
 
     private var loadingView: some View {
-        VStack(spacing: 16) {
-            ProgressView()
-                .scaleEffect(1.5)
-            Text("Loading employees...")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+        ScrollView {
+            VStack(spacing: 12) {
+                ForEach(0..<6, id: \.self) { index in
+                    EmployeeRowSkeleton(index: index)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top, 8)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     // MARK: - Empty State View
 
     private var emptyStateView: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "person.3.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.gray.opacity(0.5))
-
-            Text("No Employees")
-                .font(.title2)
-                .fontWeight(.semibold)
-
-            Text("Add employees to start managing your team")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        AnimatedEmptyState(
+            icon: "person.3.fill",
+            title: "No Employees",
+            message: "Add employees to start managing your team",
+            accentColor: Constants.Colors.adminPrimary,
+            buttonTitle: "Add Employee",
+            buttonAction: {
+                // Add employee action - placeholder for future implementation
+            }
+        )
     }
 
     // MARK: - Search Empty View
 
     private var searchEmptyView: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "magnifyingglass")
-                .font(.system(size: 40))
-                .foregroundColor(.gray.opacity(0.5))
-
-            Text("No Results")
-                .font(.title3)
-                .fontWeight(.semibold)
-
-            Text("No employees match \"\(viewModel.searchText)\"")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        AnimatedSearchEmptyState(
+            searchText: viewModel.searchText,
+            accentColor: Constants.Colors.adminPrimary
+        )
     }
 
     // MARK: - Employee List View
 
     private var employeeListView: some View {
-        Group {
-            if viewModel.isSearchEmpty {
-                searchEmptyView
-            } else {
-                List {
-                    ForEach(viewModel.filteredEmployees) { employee in
-                        NavigationLink {
-                            EmployeeDetailView(displayItem: employee)
+        ScrollView {
+            LazyVStack(spacing: 12) {
+                ForEach(Array(viewModel.filteredEmployees.enumerated()), id: \.element.id) { index, employee in
+                    NavigationLink {
+                        EmployeeDetailView(displayItem: employee)
+                    } label: {
+                        EmployeeRowView(employee: employee, index: index)
+                    }
+                    .buttonStyle(.plain)
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            Task {
+                                await viewModel.deleteEmployee(employee)
+                            }
                         } label: {
-                            EmployeeRowView(employee: employee)
+                            Label("Delete", systemImage: "trash")
                         }
                     }
-                    .onDelete(perform: deleteEmployees)
-                }
-                .listStyle(.insetGrouped)
-                .refreshable {
-                    await viewModel.refresh()
                 }
             }
+            .padding(.horizontal)
+            .padding(.top, 8)
+            .padding(.bottom, 20)
         }
+        .refreshable {
+            await viewModel.refresh()
+        }
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: viewModel.filteredEmployees.count)
     }
 
     // MARK: - Actions
+
+    private func updateContentState() {
+        if viewModel.isLoading && viewModel.employees.isEmpty {
+            contentState = .loading
+        } else if viewModel.isEmpty {
+            contentState = .empty
+        } else if viewModel.isSearchEmpty {
+            contentState = .searchEmpty
+        } else {
+            contentState = .content
+        }
+    }
 
     private func deleteEmployees(at offsets: IndexSet) {
         let employeesToDelete = offsets.map { viewModel.filteredEmployees[$0] }
