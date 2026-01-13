@@ -61,3 +61,20 @@ iOSInjectionProject/
 
 # Claude Code
 .claude/scripts/*.log
+
+# Firebase configuration (contains API keys)
+**/GoogleService-Info.plist
+
+# Secrets and environment files
+*.env
+*.env.*
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+
+# API keys and certificates
+*.p12
+*.cer
+*.mobileprovision
+*.provisionprofile
